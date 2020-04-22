@@ -10,7 +10,7 @@ const Header = () => {
     <Box
       sx={{
         height: '400px',
-        background: 'linear-gradient( 0deg,#D3EAF8,#BFDEF2)',
+        background: theme => `linear-gradient( 0deg, ${theme.colors.homepageLight}, ${theme.colors.homepageDark})`,
         position: 'relative',
       }}>
       <Box
@@ -27,14 +27,14 @@ const Header = () => {
         }}>
         <Flex
           sx={{
-            flexDirection: 'row',
+            flexDirection: ['column', 'column', 'row'],
             justifyContent: 'space-between',
             alignItems: 'center',
           }}>
           <Link
             to='/'
             sx={{
-              fontSize: '4',
+              fontSize: [2, 3, 4],
               fontWeight: 'bold',
               textDecoration: 'none',
               color: 'primary',
@@ -88,12 +88,13 @@ const Header = () => {
           mt: 4,
           mx: 'auto',
           height: '60px',
+          fontSize: [3, 4, 5],
         }}>
         <Text
           sx={{
-            fontSize: 5,
+            paddingLeft: [2, null],
           }}>
-          Hi, I'm Hung Do
+          Hi, I'm Hung
         </Text>
         <Flex
           sx={{
@@ -101,7 +102,7 @@ const Header = () => {
           }}>
           <Text
             sx={{
-              fontSize: 5,
+              paddingLeft: [2, null],
             }}>
             I write about
           </Text>
@@ -119,8 +120,8 @@ const Header = () => {
                   key={idx}
                   sx={{
                     position: 'absolute',
-                    left: '1%',
-                    top: '-60%',
+                    left: ['2%', '1%'],
+                    top: ['-38%', '-45%', '-60%'],
                     animationName: 'slide-word',
                     animationDuration: `${animatedTexts.length * 1.8}s`,
                     animationTimingFunction: 'cubic-bezier(0.19,0.82,0.84,1.06)',
@@ -129,7 +130,8 @@ const Header = () => {
                     opacity: 0,
                     overflow: 'hidden',
                     letterSpacing: '-1px',
-                    fontSize: 5,
+                    whiteSpace: 'nowrap',
+                    // fontSize: 5,
                     '@keyframes slide-word': {
                       '0%': {
                         opacity: 0,
@@ -194,11 +196,17 @@ const Header = () => {
       </Box>
       <Box
         sx={{
+          display: ['none', 'none', 'block'],
           position: 'absolute',
-          right: '10%',
-          bottom: '-33%',
+          left: [null, null, '67%'],
+          top: [null, null, '250px', '200px'],
         }}>
-        <Image src={Whale} />
+        <Image
+          sx={{
+            maxWidth: [null, null, '80%', '100%'],
+          }}
+          src={Whale}
+        />
       </Box>
     </Box>
   )

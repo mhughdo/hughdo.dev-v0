@@ -1,5 +1,5 @@
 export default {
-  breakpoints: ['640px', '768px', '1024px', '1280px'],
+  breakpoints: ['640px', '768px', '1024px', '1200px'],
   space: [0, 4, 8, 10, 16, 32, 64, 128, 256, 512],
   fonts: {
     body: 'Jost, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
@@ -22,6 +22,8 @@ export default {
     primary: '#4433FF',
     secondary: '#51EAEA',
     muted: '#E2E8F0',
+    homepageLight: '#D3EAF8',
+    homepageDark: '#BFDEF2',
   },
   text: {
     heading: {

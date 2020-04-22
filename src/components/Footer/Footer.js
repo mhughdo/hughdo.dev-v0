@@ -1,7 +1,81 @@
-import React from 'react'
+/** @jsx jsx */
+import {jsx, Box, Flex, Text, Link} from 'theme-ui'
+import {AiFillGithub, AiOutlineTwitter, AiFillFacebook} from 'react-icons/ai'
 
 const Footer = () => {
-  return <footer>This is footer</footer>
+  return (
+    <footer>
+      <Box
+        sx={{
+          background: theme => `linear-gradient( 0deg, ${theme.colors.homepageLight}, ${theme.colors.homepageDark})`,
+        }}>
+        <Flex
+          sx={{
+            flexDirection: 'column',
+            maxWidth: 'container',
+            mx: 'auto',
+            padding: 4,
+            alignItems: 'center',
+          }}>
+          <Text>Made with ❤️, 🔥, and a 💻</Text>
+          <Text
+            sx={{
+              fontSize: 1,
+            }}>
+            © 2020 Hung Do
+          </Text>
+          <Box>
+            <Link
+              href='https://www.facebook.com/fluinvs'
+              target='_blank'
+              rel='noopener noreferrer'
+              sx={{
+                color: 'text',
+                fontSize: 4,
+                p: 2,
+              }}>
+              <AiFillFacebook
+                sx={{
+                  ':hover': {
+                    fill: '#4267B2',
+                    transition: 'all 300ms ease-in',
+                  },
+                }}
+              />
+            </Link>
+            <Link
+              href='https://github.com/mhughdo'
+              target='_blank'
+              rel='noopener noreferrer'
+              sx={{
+                color: 'text',
+                fontSize: 4,
+              }}>
+              <AiFillGithub />
+            </Link>
+            <Link
+              target='_blank'
+              rel='noopener noreferrer'
+              sx={{
+                color: 'text',
+                fontSize: 4,
+                p: 2,
+              }}
+              href='https://twitter.com/mhughdo'>
+              <AiOutlineTwitter
+                sx={{
+                  ':hover': {
+                    fill: '#1da0f2',
+                    transition: 'all 300ms ease-in',
+                  },
+                }}
+              />
+            </Link>
+          </Box>
+        </Flex>
+      </Box>
+    </footer>
+  )
 }
 
 export default Footer
