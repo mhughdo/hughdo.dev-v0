@@ -1,6 +1,4 @@
 import React from 'react'
-import {Link} from 'gatsby'
-import {css} from '@emotion/core'
 import {Flex, Box} from 'theme-ui'
 import GlobalStyles from './styles/GlobalStyles'
 import 'normalize.css'
@@ -21,6 +19,7 @@ const Layout = ({children}) => {
           sx={{
             maxWidth: 'container',
             mx: 'auto',
+            pt: 6,
             // px: 4,
           }}>
           {children}

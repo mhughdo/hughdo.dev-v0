@@ -17,12 +17,19 @@ const Footer = () => {
             padding: 4,
             alignItems: 'center',
           }}>
-          <Text>Made with ❤️, 🔥, and a 💻</Text>
-          <Text
-            sx={{
-              fontSize: 1,
-            }}>
-            © 2020 Hung Do
+          <Text>
+            Made with{' '}
+            <span role='img' aria-label='heart'>
+              ❤️
+            </span>
+            ,{' '}
+            <span role='img' aria-label='fire'>
+              🔥
+            </span>
+            , and a{' '}
+            <span role='img' aria-label='laptop'>
+              💻
+            </span>
           </Text>
           <Box>
             <Link
@@ -72,6 +79,12 @@ const Footer = () => {
               />
             </Link>
           </Box>
+          <Text
+            sx={{
+              fontSize: 1,
+            }}>
+            © 2020 Hung Do
+          </Text>
         </Flex>
       </Box>
     </footer>

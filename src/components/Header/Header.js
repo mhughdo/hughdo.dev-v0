@@ -2,14 +2,15 @@
 import {jsx, Box, Flex, NavLink, Image, Text} from 'theme-ui'
 import {Link} from 'gatsby'
 import Whale from '../../assets/images/whale.png'
+import MobileNav from './MobileNav'
 
-const animatedTexts = ['Everything i found interesting', 'Technology', 'My journey', 'Tips and tricks']
+const animatedTexts = ['Everything i find interesting', 'Technology', 'My journey', 'Tips and tricks']
 
 const Header = () => {
   return (
     <Box
       sx={{
-        height: '400px',
+        height: ['240px', '240px', '400px'],
         background: theme => `linear-gradient( 0deg, ${theme.colors.homepageLight}, ${theme.colors.homepageDark})`,
         position: 'relative',
       }}>
@@ -17,6 +18,7 @@ const Header = () => {
         sx={{
           width: '48px',
           height: '48px',
+          display: ['none', 'none', 'block'],
         }}
       />
       <Box
@@ -24,26 +26,30 @@ const Header = () => {
           maxWidth: 'container',
           mx: 'auto',
           height: '60px',
+          px: [4, 5],
         }}>
         <Flex
           sx={{
-            flexDirection: ['column', 'column', 'row'],
+            flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
+            height: '100%',
           }}>
           <Link
             to='/'
             sx={{
-              fontSize: [2, 3, 4],
+              fontSize: [4],
               fontWeight: 'bold',
               textDecoration: 'none',
               color: 'primary',
             }}>
             Hugh Do
           </Link>
+          <MobileNav />
           <Flex
             as='nav'
             sx={{
+              display: ['none', 'none', 'block'],
               '& > a': {
                 margin: 3,
                 fontWeight: 'normal',
@@ -92,7 +98,7 @@ const Header = () => {
         }}>
         <Text
           sx={{
-            paddingLeft: [2, null],
+            pl: [4, 5],
           }}>
           Hi, I'm Hung
         </Text>
@@ -102,7 +108,7 @@ const Header = () => {
           }}>
           <Text
             sx={{
-              paddingLeft: [2, null],
+              pl: [4, 5],
             }}>
             I write about
           </Text>
@@ -198,12 +204,12 @@ const Header = () => {
         sx={{
           display: ['none', 'none', 'block'],
           position: 'absolute',
-          left: [null, null, '67%'],
-          top: [null, null, '250px', '200px'],
+          left: [null, null, '65%'],
+          top: [null, null, '250px'],
         }}>
         <Image
           sx={{
-            maxWidth: [null, null, '80%', '100%'],
+            width: '264px',
           }}
           src={Whale}
         />

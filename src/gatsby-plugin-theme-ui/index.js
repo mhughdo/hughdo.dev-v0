@@ -24,6 +24,7 @@ export default {
     muted: '#E2E8F0',
     homepageLight: '#D3EAF8',
     homepageDark: '#BFDEF2',
+    bluredBackground: 'rgba(255, 255, 255, 0.85)',
   },
   text: {
     heading: {
