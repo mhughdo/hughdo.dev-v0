@@ -1,7 +1,7 @@
-import React from 'react'
-import {Flex, Box} from 'theme-ui'
+/** @jsx jsx */
+import {jsx, Flex, Box} from 'theme-ui'
 import GlobalStyles from './styles/GlobalStyles'
-import 'normalize.css'
+// import 'normalize.css'
 import Footer from './Footer/Footer'
 import Header from './Header/Header'
 

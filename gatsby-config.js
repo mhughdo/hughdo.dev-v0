@@ -3,7 +3,7 @@ module.exports = {
     title: `Hugh Do`,
     description: `The Personal Website of Hugh Do`,
     siteUrl: 'https://hughdo.dev',
-    author: `Hung Do`,
+    author: `Hugh Do`,
     social: {
       twitter: `@mhughdo`,
     },
@@ -13,7 +13,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/posts`,
-        name: `posts`,
+        name: `post`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/tips`,
+        name: `tip`,
       },
     },
     {
@@ -30,7 +37,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1200,
+              maxWidth: 1500,
               linkImagesToOriginal: false,
               withWebp: true,
             },
@@ -72,8 +79,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Hugh Do Blog`,
+        short_name: `hdm`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,

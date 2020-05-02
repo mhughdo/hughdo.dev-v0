@@ -1,6 +1,6 @@
 export default {
   breakpoints: ['640px', '768px', '1024px', '1200px'],
-  space: [0, 4, 8, 10, 16, 32, 64, 128, 256, 512],
+  space: [0, 4, 8, 10, 16, 32, 48, 64, 128, 256, 512],
   fonts: {
     body: 'Jost, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
     heading: 'inherit',
@@ -9,6 +9,7 @@ export default {
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
   fontWeights: {
     body: 400,
+    medium: 500,
     heading: 700,
     bold: 700,
   },
@@ -62,32 +63,45 @@ export default {
   styles: {
     root: {
       fontFamily: 'body',
+      fontSize: 3,
       lineHeight: 'body',
       fontWeight: 'body',
     },
     h1: {
       variant: 'text.heading',
-      fontSize: '60px',
+      fontSize: 6,
+      mt: 4,
+      mb: 3,
+      pt: 5,
+      pb: 3,
+      lineHeight: '1.35',
     },
     h2: {
       variant: 'text.heading',
-      fontSize: 4,
+      lineHeight: 'body',
+      fontWeight: 'medium',
+      color: 'tertiary',
+      mt: 6,
+      mb: 4,
+      fontSize: 5,
     },
     h3: {
       variant: 'text.heading',
-      fontSize: 3,
+      fontWeight: 'medium',
+      mt: 5,
+      mb: 3,
+      fontSize: 4,
     },
     h4: {
       variant: 'text.heading',
-      fontSize: 2,
+      fontWeight: 'medium',
+      mt: 4,
+      mb: 3,
+      fontSize: 3,
     },
-    h5: {
-      variant: 'text.heading',
-      fontSize: 1,
-    },
-    h6: {
-      variant: 'text.heading',
-      fontSize: 0,
+    p: {
+      fontSize: 3,
+      mb: 5,
     },
     pre: {
       fontFamily: 'monospace',

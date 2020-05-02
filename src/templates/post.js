@@ -1,50 +1,28 @@
 import React from 'react'
 import {Link, graphql} from 'gatsby'
 
+import {MDXRenderer} from 'gatsby-plugin-mdx'
 import Bio from '../components/bio'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-const BlogPostTemplate = ({data, pageContext, location}) => {
-  const post = data.markdownRemark
+const Post = ({data, pageContext, location}) => {
+  const post = data.mdx
+  const {frontmatter} = post
   const siteTitle = data.site.siteMetadata.title
   const {previous, next} = pageContext
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
-      <article>
-        <header>
-          <h1
-            style={{
-              // marginTop: rhythm(1),
-              marginBottom: 0,
-            }}>
-            {post.frontmatter.title}
-          </h1>
-          <p
-            style={{
-              // ...scale(-1 / 5),
-              display: `block`,
-              // marginBottom: rhythm(1),
-            }}>
-            {post.frontmatter.date}
-          </p>
-        </header>
-        <section dangerouslySetInnerHTML={{__html: post.html}} />
-        <hr
-          style={
-            {
-              // marginBottom: rhythm(1),
-            }
-          }
-        />
-        <footer>
-          <Bio />
-        </footer>
-      </article>
+      <SEO
+        title={frontmatter.title}
+        description={frontmatter.description || post.excerpt}
+        image={frontmatter?.image?.publicURL}
+        pathname={frontmatter.slug}
+      />
+      <MDXRenderer>{post.body}</MDXRenderer>
 
-      <nav>
+      {/* <nav>
         <ul
           style={{
             display: `flex`,
@@ -68,29 +46,34 @@ const BlogPostTemplate = ({data, pageContext, location}) => {
             )}
           </li>
         </ul>
-      </nav>
+      </nav> */}
     </Layout>
   )
 }
 
-export default BlogPostTemplate
+export default Post
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query PostBySlug($slug: String!) {
     site {
       siteMetadata {
         title
+        author
       }
     }
-    markdownRemark(fields: {slug: {eq: $slug}}) {
+    mdx(fields: {slug: {eq: $slug}}) {
       id
-      excerpt(pruneLength: 160)
-      html
+      excerpt
+      fileAbsolutePath
       frontmatter {
         title
+        slug
         date(formatString: "MMMM DD, YYYY")
-        description
+        image {
+          ...ImageFields
+        }
       }
+      body
     }
   }
 `

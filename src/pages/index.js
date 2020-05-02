@@ -6,9 +6,6 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 
 const Index = ({data, location}) => {
-  const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
-
   return (
     <Layout>
       <SEO title='Homepage' />
@@ -27,20 +24,20 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-          }
-        }
-      }
-    }
+    #   allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
+    #     edges {
+    #       node {
+    #         excerpt
+    #         fields {
+    #           slug
+    #         }
+    #         frontmatter {
+    #           date(formatString: "MMMM DD, YYYY")
+    #           title
+    #           description
+    #         }
+    #       }
+    #     }
+    #   }
   }
 `
