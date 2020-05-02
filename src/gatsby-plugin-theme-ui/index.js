@@ -92,14 +92,14 @@ export default {
     pre: {
       fontFamily: 'monospace',
       overflowX: 'auto',
-      code: {
-        color: 'inherit',
+      'div.token-line': {
+        color: 'preText',
       },
-      '.token.comment,.token.prolog,.token.doctype, .token.cdata': {
+      '.token.comment, .token.prolog, .token.doctype, .token.cdata': {
         color: 'tokenComment',
       },
       '.token.punctuation': {
-        color: 'tokenPunctuation',
+        color: 'inherit',
       },
       '.token.class-name, .token.tag, .token.constant, .token.parameter, .token.tag.punctiation, .token.template-string.interpolation.constant': {
         color: 'tokenProp',
@@ -110,7 +110,7 @@ export default {
       '.token.selector, .token.attr-name, .token.char, .token.builtin, .token.inserted, .token.script-punctuation': {
         color: 'tokenName',
       },
-      '.token.keyword, .token.operator, .token.entity, .token.dom.variable, .token.variable, .token.dom, .token.string, .token.script.string, .token.template-string.template-punctuation, .token.template-string, .token.tag.string, .token.tag.operator, .token.url,.language-css.token.string,.style.token.string': {
+      '.token.keyword, .token.url, .token.operator, .token.entity, .token.variable, .token.dom, .token.string, .token.template-string, .token.template-punctuation, .token.language-css.string, .token.style.string': {
         color: 'tokenStr',
       },
       '.token.attr-value, .token.atrule': {
