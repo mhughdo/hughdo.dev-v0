@@ -103,6 +103,26 @@ export default {
       fontSize: 3,
       mb: 5,
     },
+    ol: {
+      li: {
+        display: 'flex',
+        alignItems: 'baseline',
+        counterIncrement: 'muffins',
+        mb: 3,
+        '::before': {
+          content: 'counter(muffins) ". "',
+          color: 'primary',
+          pr: 3,
+          fontWeight: 'medium',
+          fontFeatureSettings: 'tnum',
+        },
+      },
+      p: 0,
+      mt: 0,
+      mb: 5,
+      listStyle: 'none',
+      counterReset: 'muffins',
+    },
     pre: {
       fontFamily: 'monospace',
       overflowX: 'auto',
