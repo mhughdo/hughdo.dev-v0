@@ -2,8 +2,8 @@
 import {jsx, Flex, Box} from 'theme-ui'
 import GlobalStyles from './styles/GlobalStyles'
 // import 'normalize.css'
-import Footer from './footer/Footer'
-import Header from './header/Header'
+import Footer from './Footer/Footer'
+import Header from './Header/Header'
 
 const Layout = ({children}) => {
   return (

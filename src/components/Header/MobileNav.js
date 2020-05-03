@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import {jsx, Box, Button, Flex} from 'theme-ui'
-import {useState, useEffect, useRef} from 'react'
+import {useState, useEffect} from 'react'
 import {Link} from 'gatsby'
 
 const MobileNav = () => {
