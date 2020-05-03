@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import {jsx, Flex, Box} from 'theme-ui'
-import GlobalStyles from './styles/GlobalStyles'
 // import 'normalize.css'
+import './styles/FontFace.css'
 import Footer from './Footer/Footer'
 import Header from './Header/Header'
 
@@ -12,7 +12,7 @@ const Layout = ({children}) => {
         flexDirection: 'column',
         minHeight: '100vh',
       }}>
-      <GlobalStyles />
+      {/* <GlobalStyles /> */}
       <Header />
       <main>
         <Box
