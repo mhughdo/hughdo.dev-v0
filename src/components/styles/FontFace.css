@@ -1,26 +1,104 @@
 @font-face {
-  font-family: 'Jost';
-  src: local('Jost* Book'), local('Jost-Book'), url('../../assets/fonts/Jost/Jost-400-Book.woff2') format('woff2'),
-    url('../../assets/fonts/Jost/Jost-400-Book.woff') format('woff'),
-    url('../../assets/fonts/Jost/Jost-400-Book.ttf') format('truetype');
+  font-family: Jost;
+  font-weight: 300;
+  font-style: normal;
+  src: url('../../assets/fonts/Jost/Jost-300-Light.woff2') format('woff2');
+}
+@font-face {
+  font-family: Jost;
+  font-weight: 300;
+  font-style: italic;
+  src: url('../../assets/fonts/Jost/Jost-300-LightItalic.woff2') format('woff2');
+}
+@font-face {
+  font-family: Jost;
   font-weight: normal;
   font-style: normal;
+  src: url('../../assets/fonts/Jost/Jost-400-Book.woff2') format('woff2'),
+    url('../../assets/fonts/Jost/Jost-400-Book.woff') format('woff'),
+    url('../../assets/fonts/Jost/Jost-400-Book.ttf') format('truetype');
 }
-
 @font-face {
-  font-family: 'Jost';
-  src: local('Jost* Medium'), local('Jost-Medium'), url('../../assets/fonts/Jost/Jost-500-Medium.woff2') format('woff2'),
-    url('../../assets/fonts/Jost/Jost-500-Medium.woff') format('woff'),
-    url('../../assets/fonts/Jost/Jost-500-Medium.ttf') format('truetype');
+  font-family: Jost;
+  font-weight: normal;
+  font-style: italic;
+  src: url('../../assets/fonts/Jost/Jost-400-BookItalic.woff2') format('woff2');
+}
+@font-face {
+  font-family: Jost;
   font-weight: 500;
   font-style: normal;
+  src: url('../../assets/fonts/Jost/Jost-500-Medium.woff2') format('woff2'),
+    url('../../assets/fonts/Jost/Jost-500-Medium.woff') format('woff'),
+    url('../../assets/fonts/Jost/Jost-500-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: Jost;
+  font-weight: 500;
+  font-style: italic;
+  src: url('../../assets/fonts/Jost/Jost-500-MediumItalic.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'Jost';
-  src: local('Jost* Bold'), local('Jost-Bold'), url('../../assets/fonts/Jost/Jost-700-Bold.woff2') format('woff2'),
+  font-family: Jost;
+  font-weight: 600;
+  font-style: normal;
+  src: url('../../assets/fonts/Jost/Jost-600-Semi.woff2') format('woff2');
+}
+@font-face {
+  font-family: Jost;
+  font-weight: 700;
+  font-style: normal;
+  src: url('../../assets/fonts/Jost/Jost-700-Bold.woff2') format('woff2'),
     url('../../assets/fonts/Jost/Jost-700-Bold.woff') format('woff'),
     url('../../assets/fonts/Jost/Jost-700-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Poppins;
+  font-weight: 300;
+  font-style: normal;
+  src: url('../../assets/fonts/Poppins/Poppins-Light.woff2') format('woff2');
+}
+@font-face {
+  font-family: Poppins;
+  font-weight: 300;
+  font-style: italic;
+  src: url('../../assets/fonts/Poppins/Poppins-LightItalic.woff2') format('woff2');
+}
+@font-face {
+  font-family: Poppins;
+  font-weight: normal;
+  font-style: normal;
+  src: url('../../assets/fonts/Poppins/Poppins-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: Poppins;
+  font-weight: normal;
+  font-style: italic;
+  src: url('../../assets/fonts/Poppins/Poppins-Italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: Poppins;
+  font-weight: 500;
+  font-style: normal;
+  src: url('../../assets/fonts/Poppins/Poppins-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: Poppins;
+  font-weight: 500;
+  font-style: italic;
+  src: url('../../assets/fonts/Poppins/Poppins-MediumItalic.woff2') format('woff2');
+}
+@font-face {
+  font-family: Poppins;
+  font-weight: 600;
+  font-style: normal;
+  src: url('../../assets/fonts/Poppins/Poppins-SemiBold.woff2') format('woff2');
+}
+@font-face {
+  font-family: Poppins;
   font-weight: 700;
-  font-style: bold;
+  font-style: normal;
+  src: url('../../assets/fonts/Poppins/Poppins-Bold.woff2') format('woff2');
 }
