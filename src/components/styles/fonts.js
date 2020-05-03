@@ -22,42 +22,36 @@ export default css`
     font-weight: 300;
     font-style: normal;
     src: url(${Jost300Light}) format('woff2');
-    font-display: 'swap';
   }
   @font-face {
     font-family: Jost;
     font-weight: 300;
     font-style: italic;
     src: url(${Jost300LightItalic}) format('woff2');
-    font-display: 'swap';
   }
   @font-face {
     font-family: Jost;
     font-weight: normal;
     font-style: normal;
     src: url(${Jost400Book}) format('woff2');
-    font-display: 'swap';
   }
   @font-face {
     font-family: Jost;
     font-weight: normal;
     font-style: italic;
     src: url(${Jost400BookItalic}) format('woff2');
-    font-display: 'swap';
   }
   @font-face {
     font-family: Jost;
     font-weight: 500;
     font-style: normal;
     src: url(${Jost500Medium}) format('woff2');
-    font-display: 'swap';
   }
   @font-face {
     font-family: Jost;
     font-weight: 500;
     font-style: italic;
     src: url(${Jost500MediumItalic}) format('woff2');
-    font-display: 'swap';
   }
 
   @font-face {
@@ -65,14 +59,12 @@ export default css`
     font-weight: 600;
     font-style: normal;
     src: url(${Jost600Semi}) format('woff2');
-    font-display: 'swap';
   }
   @font-face {
     font-family: Jost;
     font-weight: 700;
     font-style: normal;
     src: url(${Jost700Bold}) format('woff2');
-    font-display: 'swap';
   }
 
   @font-face {
@@ -80,55 +72,47 @@ export default css`
     font-weight: normal;
     font-style: normal;
     src: url(${PoppinsRegular}) format('woff2');
-    font-display: 'swap';
   }
   @font-face {
     font-family: Poppins;
     font-weight: 300;
     font-style: normal;
     src: url(${PoppinsLight}) format('woff2');
-    font-display: 'swap';
   }
   @font-face {
     font-family: Poppins;
     font-weight: 300;
     font-style: italic;
     src: url(${PoppinsLightItalic}) format('woff2');
-    font-display: 'swap';
   }
   @font-face {
     font-family: Poppins;
     font-weight: normal;
     font-style: italic;
     src: url(${PoppinsItalic}) format('woff2');
-    font-display: 'swap';
   }
   @font-face {
     font-family: Poppins;
     font-weight: 500;
     font-style: normal;
     src: url(${PoppinsMedium}) format('woff2');
-    font-display: 'swap';
   }
   @font-face {
     font-family: Poppins;
     font-weight: 500;
     font-style: italic;
     src: url(${PoppinsMediumItalic}) format('woff2');
-    font-display: 'swap';
   }
   @font-face {
     font-family: Poppins;
     font-weight: 600;
     font-style: normal;
     src: url(${PoppinsSemiBold}) format('woff2');
-    font-display: 'swap';
   }
   @font-face {
     font-family: Poppins;
     font-weight: 700;
     font-style: normal;
     src: url(${PoppinsBold}) format('woff2');
-    font-display: 'swap';
   }
 `
