@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import {jsx, Box, Flex, NavLink, Image, Text} from 'theme-ui'
 import {Link} from 'gatsby'
+import {jsx, Box, Flex, NavLink, Image, Text} from 'theme-ui'
 import Whale from '../../assets/images/whale.png'
 import MobileNav from './MobileNav'
 

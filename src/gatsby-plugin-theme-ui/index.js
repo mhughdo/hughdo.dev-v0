@@ -19,6 +19,7 @@ export default {
   },
   colors: {
     text: '#000000',
+    language: '#232129',
     background: '#ffffff',
     primary: '#4433FF',
     secondary: '#e60067',
@@ -40,6 +41,11 @@ export default {
     tokenHightlight: '#e9ebf2',
     tokenBool: '#bf00b8',
     tokenDel: '#c8b8f9',
+    JS: '#f7de1e',
+    TS: '#007acc',
+    JSX: '#61dafb',
+    TSX: '#007acc',
+    CSS: '#264de4',
   },
   text: {
     heading: {
@@ -51,6 +57,7 @@ export default {
   },
   sizes: {
     container: '1100px',
+    article: '800px',
     nav: '60px',
   },
   links: {
@@ -123,53 +130,6 @@ export default {
       listStyle: 'none',
       counterReset: 'muffins',
     },
-    pre: {
-      fontFamily: 'monospace',
-      overflowX: 'auto',
-      'div.token-line': {
-        color: 'preText',
-      },
-      '.token.comment, .token.prolog, .token.doctype, .token.cdata': {
-        color: 'tokenComment',
-      },
-      '.token.punctuation': {
-        color: 'inherit',
-      },
-      '.token.class-name, .token.tag, .token.constant, .token.parameter, .token.tag.punctiation, .token.template-string.interpolation.constant': {
-        color: 'tokenProp',
-      },
-      '.token.function': {
-        color: '#3D5AFE',
-      },
-      '.token.selector, .token.attr-name, .token.char, .token.builtin, .token.inserted, .token.script-punctuation': {
-        color: 'tokenName',
-      },
-      '.token.keyword, .token.url, .token.operator, .token.entity, .token.variable, .token.dom, .token.string, .token.template-string, .token.template-punctuation, .token.language-css.string, .token.style.string': {
-        color: 'tokenStr',
-      },
-      '.token.attr-value, .token.atrule': {
-        color: 'tokenVal',
-      },
-      '.token.regex, .token.important': {
-        color: 'tokenRegex',
-      },
-      '.token.number, .token.boolean, .token.property, .token.symbol, .token.deleted': {
-        color: 'tokenBool',
-      },
-      '.token.namespace': {
-        opacity: '.7',
-      },
-      '.token.important, .token.bold': {
-        fontWeight: 'bold',
-      },
-      '.token.italic': {
-        fontStyle: 'italic',
-      },
-
-      '.token.entity': {
-        cursor: 'help',
-      },
-    },
     code: {
       fontFamily: 'monospace',
       fontSize: 'inherit',
@@ -186,6 +146,53 @@ export default {
     td: {
       textAlign: 'left',
       borderBottomStyle: 'solid',
+    },
+  },
+  'prism-highlight': {
+    fontFamily: 'monospace',
+    'div.token-line': {
+      color: 'preText',
+      fontSize: 2,
+    },
+    '.token.comment, .token.prolog, .token.doctype, .token.cdata': {
+      color: 'tokenComment',
+    },
+    '.token.punctuation': {
+      color: 'inherit',
+    },
+    '.token.class-name, .token.tag, .token.constant, .token.parameter, .token.tag.punctiation, .token.template-string.interpolation.constant': {
+      color: 'tokenProp',
+    },
+    '.token.function': {
+      color: '#3D5AFE',
+    },
+    '.token.selector, .token.attr-name, .token.char, .token.builtin, .token.inserted, .token.script-punctuation': {
+      color: 'tokenName',
+    },
+    '.token.keyword, .token.url, .token.operator, .token.entity, .token.variable, .token.dom, .token.string, .token.template-string, .token.template-punctuation, .token.language-css.string, .token.style.string': {
+      color: 'tokenStr',
+    },
+    '.token.attr-value, .token.atrule': {
+      color: 'tokenVal',
+    },
+    '.token.regex, .token.important': {
+      color: 'tokenRegex',
+    },
+    '.token.number, .token.boolean, .token.property, .token.symbol, .token.deleted': {
+      color: 'tokenBool',
+    },
+    '.token.namespace': {
+      opacity: '.7',
+    },
+    '.token.important, .token.bold': {
+      fontWeight: 'bold',
+    },
+    '.token.italic': {
+      fontStyle: 'italic',
+    },
+
+    '.token.entity': {
+      cursor: 'help',
     },
   },
 }

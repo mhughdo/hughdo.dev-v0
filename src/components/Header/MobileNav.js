@@ -1,11 +1,18 @@
 /** @jsx jsx */
 import {jsx, Box, Button, Flex} from 'theme-ui'
-import {useState} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import {Link} from 'gatsby'
 
 const MobileNav = () => {
   const [isToggledOn, setToggle] = useState(false)
+  const [mobileNav, setMobileNav] = useState(false)
   const toggle = () => setToggle(!isToggledOn)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setMobileNav(isToggledOn)
+    }, 300)
+  }, [isToggledOn])
 
   return (
     <Box
@@ -75,6 +82,7 @@ const MobileNav = () => {
           />
         </svg>
       </Button>
+      {/* TODO using react portal */}
       <Box
         sx={{
           position: 'fixed',
@@ -83,6 +91,8 @@ const MobileNav = () => {
           bottom: 0,
           left: 0,
           zIndex: 9999,
+          ...(!mobileNav && {visibility: 'hidden'}),
+          ...(isToggledOn && {visibility: 'visible'}),
         }}>
         <Box
           sx={{

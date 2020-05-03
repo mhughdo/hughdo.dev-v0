@@ -1,13 +1,14 @@
-import React from 'react'
+/** @jsx jsx */
+import {jsx} from 'theme-ui'
 import {Link, graphql} from 'gatsby'
 
 import {MDXRenderer} from 'gatsby-plugin-mdx'
-import Bio from '../components/bio'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
 const Post = ({data, pageContext, location}) => {
   const post = data.mdx
+  const {slug} = post.fields
   const {frontmatter} = post
   const siteTitle = data.site.siteMetadata.title
   const {previous, next} = pageContext
@@ -18,9 +19,18 @@ const Post = ({data, pageContext, location}) => {
         title={frontmatter.title}
         description={frontmatter.description || post.excerpt}
         image={frontmatter?.image?.publicURL}
-        pathname={frontmatter.slug}
+        pathname={slug}
       />
-      <MDXRenderer>{post.body}</MDXRenderer>
+      <article
+        key={slug}
+        sx={{
+          maxWidth: 'article',
+          mx: 'auto',
+        }}>
+        <section>
+          <MDXRenderer>{post.body}</MDXRenderer>
+        </section>
+      </article>
 
       {/* <nav>
         <ul
@@ -65,6 +75,9 @@ export const pageQuery = graphql`
       id
       excerpt
       fileAbsolutePath
+      fields {
+        slug
+      }
       frontmatter {
         title
         slug
