@@ -25,6 +25,7 @@ export default {
     secondary: '#e60067',
     tertiary: '#2c0b8e',
     muted: '#E2E8F0',
+    gray700: '#5a6072',
     homepageLight: '#D3EAF8',
     homepageDark: '#BFDEF2',
     bluredBackground: 'rgba(255, 255, 255, 0.85)',
@@ -46,6 +47,7 @@ export default {
     JSX: '#61dafb',
     TSX: '#007acc',
     CSS: '#264de4',
+    GRAPHQL: '#e10098',
   },
   text: {
     heading: {
@@ -73,6 +75,10 @@ export default {
       fontSize: 3,
       lineHeight: 'body',
       fontWeight: 'body',
+      // BUG using custom Code component and code in styles object not working
+      code: {
+        variant: 'code',
+      },
     },
     h1: {
       variant: 'text.heading',
@@ -110,6 +116,9 @@ export default {
       fontSize: 3,
       mb: 5,
     },
+    code: {
+      variant: 'code',
+    },
     ol: {
       li: {
         display: 'flex',
@@ -130,9 +139,8 @@ export default {
       listStyle: 'none',
       counterReset: 'muffins',
     },
-    code: {
-      fontFamily: 'monospace',
-      fontSize: 'inherit',
+    ul: {
+      variant: 'ul',
     },
     table: {
       width: '100%',
@@ -193,6 +201,37 @@ export default {
 
     '.token.entity': {
       cursor: 'help',
+    },
+  },
+  code: {
+    fontFamily: 'monospace',
+    fontSize: '0.8em',
+    padding: '2px 6px',
+    letterSpacing: '-0.5px',
+    position: 'relative',
+    display: 'inline-block',
+    '&::after': {
+      content: '""',
+      position: 'absolute',
+      top: 0,
+      bottom: 0,
+      left: '-1px',
+      right: '-1px',
+      opacity: '0.15',
+      backgroundColor: 'gray700',
+      borderRadius: '3px',
+    },
+  },
+  ul: {
+    mt: 0,
+    mb: 5,
+    p: 0,
+    fontSize: 3,
+    listStyle: 'none',
+    li: {
+      mb: 4,
+      display: 'flex',
+      alignItems: 'baseline',
     },
   },
 }

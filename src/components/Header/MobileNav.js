@@ -51,7 +51,7 @@ const MobileNav = () => {
             y1='5'
             x2='30'
             y2='5'
-            stroke-linecap='round'
+            strokeLinecap='round'
           />
 
           <line
@@ -65,7 +65,7 @@ const MobileNav = () => {
             y1='15'
             x2='0'
             y2='15'
-            stroke-linecap='round'
+            strokeLinecap='round'
           />
           <line
             sx={{
@@ -78,7 +78,7 @@ const MobileNav = () => {
             y1='25'
             x2='0'
             y2='25'
-            stroke-linecap='round'
+            strokeLinecap='round'
           />
         </svg>
       </Button>

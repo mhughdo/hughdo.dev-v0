@@ -1,7 +1,8 @@
 export default {
   js: 'JS',
-  TS: 'TS',
+  ts: 'TS',
   jsx: 'JSX',
-  TSX: 'TSX',
+  tsx: 'TSX',
+  graphql: 'GRAPHQL',
   css: 'CSS',
 }
