@@ -2,11 +2,13 @@
 import {jsx, Box, Button, Flex} from 'theme-ui'
 import {useState, useEffect} from 'react'
 import {Link} from 'gatsby'
+import {useScrollFreeze} from '../../hooks/useScrollFreeze'
 
 const MobileNav = () => {
   const [isToggledOn, setToggle] = useState(false)
   const [mobileNav, setMobileNav] = useState(false)
   const toggle = () => setToggle(!isToggledOn)
+  useScrollFreeze(isToggledOn)
 
   useEffect(() => {
     setTimeout(() => {
