@@ -14,18 +14,23 @@ const Layout = ({children}) => {
         minHeight: '100vh',
       }}>
       {/* <GlobalStyles /> */}
-      <Header />
-      <main>
-        <Box
-          sx={{
-            maxWidth: 'container',
-            mx: 'auto',
-            pt: 6,
-            px: [4, 5],
-          }}>
-          {children}
-        </Box>
-      </main>
+      <Box
+        sx={{
+          flex: '1 1 auto',
+        }}>
+        <Header />
+        <main>
+          <Box
+            sx={{
+              maxWidth: 'container',
+              mx: 'auto',
+              pt: 6,
+              px: [4, 5],
+            }}>
+            {children}
+          </Box>
+        </main>
+      </Box>
       <Footer />
     </Flex>
   )
