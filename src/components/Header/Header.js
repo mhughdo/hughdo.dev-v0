@@ -144,7 +144,7 @@ const Header = () => {
                         transform: 'translate3d(0%, 25%, 0px)',
                         visibility: 'visible',
                       },
-                      '2.25%': {
+                      '0.9%': {
                         opacity: 1,
                         transform: 'translate3d(0%,75%,0px)',
                       },

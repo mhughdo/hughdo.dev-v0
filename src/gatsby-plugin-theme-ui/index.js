@@ -72,7 +72,6 @@ export default {
   styles: {
     root: {
       fontFamily: 'body',
-      fontSize: 3,
       lineHeight: 'body',
       fontWeight: 'body',
       // BUG using custom Code component and code in styles object not working
