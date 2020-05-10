@@ -17,12 +17,13 @@ const Layout = ({children}) => {
       <Box
         sx={{
           flex: '1 1 auto',
+          backgroundColor: 'gray100',
         }}>
         <Header />
-        <main>
+        <main sx={{}}>
           <Box
             sx={{
-              maxWidth: 'container',
+              maxWidth: 'article',
               mx: 'auto',
               pt: 6,
               px: [4, 5],

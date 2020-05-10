@@ -12,17 +12,17 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/posts`,
+        path: `${__dirname}/src/content/posts`,
         name: `post`,
       },
     },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     path: `${__dirname}/src/tips`,
-    //     name: `tip`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/content/events`,
+        name: `event`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

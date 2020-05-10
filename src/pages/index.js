@@ -1,16 +1,22 @@
-import React from 'react'
+/** @jsx jsx */
+import {jsx, Box} from 'theme-ui'
 import {graphql} from 'gatsby'
 
 // import Bio from '../components/bio'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
+import Event from '../components/Event'
+import Post from '../components/Post'
 
-const Index = ({data, location}) => {
+const Index = () => {
   return (
     <Layout>
       <SEO title='Homepage' />
       {/* <Bio /> */}
-      This is Homepage
+      <Box>
+        <Post />
+        <Event />
+      </Box>
     </Layout>
   )
 }

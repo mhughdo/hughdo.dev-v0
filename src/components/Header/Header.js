@@ -127,7 +127,7 @@ const Header = () => {
                   sx={{
                     position: 'absolute',
                     left: ['2%', '1%'],
-                    top: ['-38%', '-45%', '-60%'],
+                    top: ['-38%', '-45%', '-54%'],
                     animationName: 'slide-word',
                     animationDuration: `${animatedTexts.length * 1.8}s`,
                     animationTimingFunction: 'cubic-bezier(0.19,0.82,0.84,1.06)',
@@ -188,7 +188,7 @@ const Header = () => {
           height='74'
           viewBox='0 0 1440 74'
           sx={{
-            fill: 'background',
+            fill: 'gray100',
             position: 'absolute',
             left: '-3%',
             right: '-3%',

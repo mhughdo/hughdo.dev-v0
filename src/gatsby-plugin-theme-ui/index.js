@@ -6,7 +6,7 @@ export default {
     heading: 'inherit',
     monospace: 'Menlo, monospace',
   },
-  fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
+  fontSizes: [12, 14, 16, 20, 24, 28, 32, 48, 64, 96],
   fontWeights: {
     body: 400,
     medium: 500,
@@ -25,7 +25,14 @@ export default {
     secondary: '#e60067',
     tertiary: '#2c0b8e',
     muted: '#E2E8F0',
+    gray100: '#F7FAFC',
+    gray200: '#EDF2F7',
+    gray300: '#E2E8F0',
+    gray400: '#CBD5E0',
+    gray500: '#A0AEC0',
+    gray600: '#718096',
     gray700: '#5a6072',
+    gray800: '#2D3748',
     homepageLight: '#D3EAF8',
     homepageDark: '#BFDEF2',
     bluredBackground: 'rgba(255, 255, 255, 0.85)',
@@ -38,7 +45,7 @@ export default {
     tokenName: '#AA00FF',
     tokenStr: '#651fff',
     tokenVal: '#78909C',
-    tokenRegex: '#e90',
+    tokenRegex: '#3600d6',
     tokenHightlight: '#e9ebf2',
     tokenBool: '#bf00b8',
     tokenDel: '#c8b8f9',
@@ -68,6 +75,11 @@ export default {
       color: 'inherit',
       textDecoration: 'none',
     },
+    fakelink: {
+      color: 'inherit',
+      fontWeight: 'medium',
+      textDecoration: 'none',
+    },
   },
   styles: {
     root: {
@@ -95,7 +107,7 @@ export default {
       color: 'tertiary',
       mt: 6,
       mb: 4,
-      fontSize: 5,
+      fontSize: 6,
     },
     h3: {
       variant: 'text.heading',
