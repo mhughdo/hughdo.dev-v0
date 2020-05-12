@@ -1,11 +1,15 @@
 /** @jsx jsx */
-import {jsx, Text, Box} from 'theme-ui'
+import {jsx, Text} from 'theme-ui'
+import {motion} from 'framer-motion'
 
 const Event = ({node}) => {
   const {title, date} = node.frontmatter
 
   return (
-    <Box
+    <motion.div
+      initial={{scale: 0.6, opacity: 0}}
+      animate={{scale: 1, opacity: 1}}
+      exit={{y: -20, opacity: 0}}
       key={title}
       sx={{
         backgroundColor: 'background',
@@ -30,7 +34,7 @@ const Event = ({node}) => {
         }}>
         {title}
       </Text>
-    </Box>
+    </motion.div>
   )
 }
 

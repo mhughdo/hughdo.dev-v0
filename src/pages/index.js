@@ -1,10 +1,10 @@
 /* eslint-disable import/no-cycle */
 /** @jsx jsx */
-import {jsx, Box, Badge} from 'theme-ui'
+import {jsx, Box} from 'theme-ui'
 import {graphql} from 'gatsby'
 
 import {useState} from 'react'
-import {motion} from 'framer-motion'
+import {AnimatePresence} from 'framer-motion'
 import pick from 'lodash.pick'
 import reduce from 'lodash.reduce'
 import sortBy from 'lodash.sortby'
@@ -39,15 +39,17 @@ const Index = ({data}) => {
       <SEO title='Homepage' />
       {/* <Bio /> */}
       <Filters pickedFilters={pickedFilters} setPickedFilters={setPickedFilters} />
-      <motion.div animate>
-        {sorted.map(entry => {
-          const Comp = componentMap[entry.type]
-          if (Comp) {
-            return <Comp key={entry.node.id} {...entry} />
-          }
-          return null
-        })}
-      </motion.div>
+      <Box>
+        <AnimatePresence>
+          {sorted.map(entry => {
+            const Comp = componentMap[entry.type]
+            if (Comp) {
+              return <Comp key={entry.node.id} {...entry} />
+            }
+            return null
+          })}
+        </AnimatePresence>
+      </Box>
     </Layout>
   )
 }

@@ -1,6 +1,7 @@
 /** @jsx jsx */
-import {jsx, Text, Box} from 'theme-ui'
+import {jsx, Text} from 'theme-ui'
 import {Link} from 'gatsby'
+import {motion} from 'framer-motion'
 
 const Post = ({node}) => {
   const {frontmatter, excerpt, fields} = node
@@ -8,7 +9,10 @@ const Post = ({node}) => {
   const {slug} = fields
 
   return (
-    <Box
+    <motion.div
+      initial={{scale: 0.6, opacity: 0}}
+      animate={{scale: 1, opacity: 1}}
+      exit={{scale: 0.7, y: -30, opacity: 0}}
       key={title}
       sx={{
         backgroundColor: 'background',
@@ -64,7 +68,7 @@ const Post = ({node}) => {
         </p>
         <Text>Read more →</Text>
       </Link>
-    </Box>
+    </motion.div>
   )
 }
 
