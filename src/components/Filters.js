@@ -15,7 +15,7 @@ const filterMap = {
 }
 
 const Filters = ({pickedFilters, setPickedFilters}) => {
-  console.log(pickedFilters)
+  // console.log(pickedFilters)
 
   return (
     <Box
@@ -30,7 +30,7 @@ const Filters = ({pickedFilters, setPickedFilters}) => {
         const isActive = pickedFilters.includes(filterKey)
         const toggleFilter = () =>
           isActive
-            ? setPickedFilters(pickedFilters.filter(f => f !== filterKey))
+            ? pickedFilters.length > 1 && setPickedFilters(pickedFilters.filter(f => f !== filterKey))
             : setPickedFilters([...pickedFilters, filterKey])
 
         return (
