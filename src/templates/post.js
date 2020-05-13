@@ -1,12 +1,12 @@
 /** @jsx jsx */
-import {jsx} from 'theme-ui'
-import {Link, graphql} from 'gatsby'
+import {jsx, Box, Text} from 'theme-ui'
+import {graphql} from 'gatsby'
 
 import {MDXRenderer} from 'gatsby-plugin-mdx'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-const Post = ({data, pageContext, location}) => {
+const Post = ({data, pageContext}) => {
   const post = data.mdx
   const {slug} = post.fields
   const {frontmatter} = post
@@ -14,13 +14,28 @@ const Post = ({data, pageContext, location}) => {
   const {previous, next} = pageContext
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout hero={false} backgroundColor='background'>
       <SEO
         title={frontmatter.title}
         description={frontmatter.description || post.excerpt}
         image={frontmatter?.image?.publicURL}
         pathname={slug}
       />
+      <Box
+        sx={{
+          pt: 8,
+          px: [4, 5],
+          pb: 7,
+          textAlign: 'center',
+        }}>
+        <Text
+          sx={{
+            fontSize: 7,
+            fontWeight: 'medium',
+          }}>
+          {frontmatter.title}
+        </Text>
+      </Box>
       <article
         key={slug}
         sx={{

@@ -1,9 +1,8 @@
 /** @jsx jsx */
-import {Link} from 'gatsby'
-import {jsx, Box, Flex, NavLink, Image, Text} from 'theme-ui'
+import {jsx, Box, Flex, Image, Text} from 'theme-ui'
 import {motion} from 'framer-motion'
 import Whale from '../../assets/images/whale.png'
-import MobileNav from './MobileNav'
+import HeaderNav from '../HeaderNav'
 
 const animatedTexts = ['Everything i find interesting', 'Technology', 'My journey', 'Tips and tricks']
 
@@ -22,73 +21,7 @@ const Header = () => {
           display: ['none', 'none', 'block'],
         }}
       />
-      <Box
-        sx={{
-          maxWidth: 'container',
-          mx: 'auto',
-          height: '60px',
-          px: [4, 5],
-        }}>
-        <Flex
-          sx={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            height: '100%',
-          }}>
-          <Link
-            to='/'
-            sx={{
-              fontSize: [4],
-              fontWeight: 'bold',
-              textDecoration: 'none',
-              color: 'primary',
-            }}>
-            Hugh Do
-          </Link>
-          <MobileNav />
-          <Flex
-            as='nav'
-            sx={{
-              display: ['none', 'none', 'block'],
-              '& > a': {
-                margin: 3,
-                fontWeight: 'normal',
-                position: 'relative',
-                ':hover': {
-                  '::before': {
-                    opacity: 1,
-                    transform: 'scaleX(1)',
-                  },
-                },
-                '::before': {
-                  content: '""',
-                  position: 'absolute',
-                  width: '100%',
-                  height: '2px',
-                  borderRadius: '4px',
-                  backgroundColor: 'primary',
-                  bottom: '0px',
-                  left: '0px',
-                  // px: '1',
-                  opacity: 0,
-                  transform: 'scaleX(0)',
-                  transition: 'all 300ms cubic-bezier(0.325, -0.075, 0, 1.65)',
-                },
-              },
-            }}>
-            <NavLink href='/blog' p={2}>
-              Blog
-            </NavLink>
-            <NavLink href='/tips' p={2}>
-              Tips
-            </NavLink>
-            <NavLink href='/about' p={2}>
-              About
-            </NavLink>
-          </Flex>
-        </Flex>
-      </Box>
+      <HeaderNav />
       <Box
         sx={{
           maxWidth: 'container',

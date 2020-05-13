@@ -31,11 +31,11 @@ const Filters = ({pickedFilters, setPickedFilters}) => {
     <Box
       sx={{
         mb: 3,
-        '> :not(:last-child)': {
-          mr: 2,
-        },
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit,minmax(150px,auto))',
+        gap: '0.7rem',
       }}>
-      {filters.map((filterKey, index) => {
+      {filters.map(filterKey => {
         const filter = filterMap[filterKey]
         const Icon = filter && filter.icon
         const isActive = pickedFilters.includes(filterKey)

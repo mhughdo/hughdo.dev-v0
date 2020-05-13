@@ -1,12 +1,13 @@
 /** @jsx jsx */
 import {jsx, Flex, Box} from 'theme-ui'
-// import GlobalStyles from './styles/GlobalStyles'
-// import 'normalize.css'
+import React from 'react'
 import './styles/FontFace.css'
 import Footer from './Footer/Footer'
-import Header from './Header/Header'
+import HeroHeader from './Header/HeroHeader'
+import HeaderNav from './HeaderNav'
+import BlurGradient from './BlurGradient'
 
-const Layout = ({children}) => {
+const Layout = ({children, hero = true, backgroundColor}) => {
   return (
     <Flex
       sx={{
@@ -17,13 +18,20 @@ const Layout = ({children}) => {
       <Box
         sx={{
           flex: '1 1 auto',
-          backgroundColor: 'gray100',
+          backgroundColor: `${backgroundColor || 'gray100'}`,
         }}>
-        <Header />
+        {hero ? (
+          <HeroHeader />
+        ) : (
+          <>
+            <HeaderNav backgroundColor={backgroundColor} fixed={true} />
+            <BlurGradient />
+          </>
+        )}
         <main sx={{}}>
           <Box
             sx={{
-              maxWidth: 'article',
+              maxWidth: 'container',
               mx: 'auto',
               pt: 6,
               px: [4, 5],
@@ -32,7 +40,7 @@ const Layout = ({children}) => {
           </Box>
         </main>
       </Box>
-      <Footer />
+      <Footer backgroundColor={backgroundColor} />
     </Flex>
   )
 }

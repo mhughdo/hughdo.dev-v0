@@ -2,7 +2,7 @@
 import {jsx, Box, Button, Flex} from 'theme-ui'
 import {useState, useEffect} from 'react'
 import {Link} from 'gatsby'
-import {useScrollFreeze} from '../../hooks/useScrollFreeze'
+import {useScrollFreeze} from '../hooks/useScrollFreeze'
 
 const MobileNav = () => {
   const [isToggledOn, setToggle] = useState(false)

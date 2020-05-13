@@ -42,20 +42,26 @@ const Index = ({data}) => {
 
   return (
     <Layout>
-      <SEO title='Homepage' />
-      {/* <Bio /> */}
-      <Filters pickedFilters={pickedFilters} setPickedFilters={setPickedFilters} />
-      <motion.div layoutTransition={spring}>
-        <AnimatePresence>
-          {sorted.map(entry => {
-            const Comp = componentMap[entry.type]
-            if (Comp) {
-              return <Comp key={entry.node.id} {...entry} />
-            }
-            return null
-          })}
-        </AnimatePresence>
-      </motion.div>
+      <Box
+        sx={{
+          maxWidth: 'article',
+          mx: 'auto',
+        }}>
+        <SEO title='Homepage' />
+        {/* <Bio /> */}
+        <Filters pickedFilters={pickedFilters} setPickedFilters={setPickedFilters} />
+        <motion.div layoutTransition={spring}>
+          <AnimatePresence>
+            {sorted.map(entry => {
+              const Comp = componentMap[entry.type]
+              if (Comp) {
+                return <Comp key={entry.node.id} {...entry} />
+              }
+              return null
+            })}
+          </AnimatePresence>
+        </motion.div>
+      </Box>
     </Layout>
   )
 }

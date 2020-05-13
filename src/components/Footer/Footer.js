@@ -2,12 +2,17 @@
 import {jsx, Box, Flex, Text, Link} from 'theme-ui'
 import {AiFillGithub, AiOutlineTwitter, AiFillFacebook} from 'react-icons/ai'
 
-const Footer = () => {
+const Footer = ({backgroundColor}) => {
   return (
     <footer>
       <Box
         sx={{
-          background: theme => `linear-gradient( 0deg, ${theme.colors.homepageLight}, ${theme.colors.homepageDark})`,
+          ...(backgroundColor
+            ? {backgroundColor}
+            : {
+                background: theme =>
+                  `linear-gradient( 0deg, ${theme.colors.homepageLight}, ${theme.colors.homepageDark})`,
+              }),
         }}>
         <Flex
           sx={{

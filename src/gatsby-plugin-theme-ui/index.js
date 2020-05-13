@@ -1,12 +1,12 @@
 export default {
   breakpoints: ['640px', '768px', '1024px', '1200px'],
-  space: [0, 4, 8, 10, 16, 32, 48, 64, 128, 256, 512],
+  space: [0, 4, 8, 10, 16, 32, 48, 64, 96, 128, 256, 512],
   fonts: {
     body: 'Jost, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
     heading: 'inherit',
     monospace: 'Menlo, monospace',
   },
-  fontSizes: [12, 14, 16, 20, 24, 28, 32, 48, 64, 96],
+  fontSizes: [12, 14, 16, 20, 24, 28, 32, 38, 48, 64, 96],
   fontWeights: {
     light: 300,
     body: 400,
@@ -22,6 +22,7 @@ export default {
     text: '#000000',
     language: '#232129',
     background: '#ffffff',
+    subtleBackground: '#eff1f5',
     primary: '#4433FF',
     secondary: '#e60067',
     tertiary: '#2c0b8e',
