@@ -1,16 +1,17 @@
 /* eslint-disable import/no-cycle */
 /** @jsx jsx */
-import {jsx, Box, Badge} from 'theme-ui'
+import {jsx, Box, Badge, Text} from 'theme-ui'
+import {GoFile, GoRocket} from 'react-icons/go'
 import {filters} from '../pages'
 
 const filterMap = {
   posts: {
     label: 'Posts',
-    icon: '',
+    icon: GoFile,
   },
   events: {
     label: 'Events',
-    icon: '',
+    icon: GoRocket,
   },
 }
 
@@ -27,6 +28,7 @@ const Filters = ({pickedFilters, setPickedFilters}) => {
       }}>
       {filters.map((filterKey, index) => {
         const filter = filterMap[filterKey]
+        const Icon = filter && filter.icon
         const isActive = pickedFilters.includes(filterKey)
         const toggleFilter = () =>
           isActive
@@ -37,20 +39,27 @@ const Filters = ({pickedFilters, setPickedFilters}) => {
           <Badge
             key={filterKey}
             sx={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              fontSize: 2,
+              fontWeight: 'body',
               cursor: 'pointer',
               userSelect: 'none',
-              py: 1,
+              py: 2,
               px: 3,
               transition: 'all 150ms linear',
               color: 'text',
-              fontWeight: 'medium',
               backgroundColor: `${isActive ? 'blue400' : 'blue300'}`,
               '&:hover': {
                 backgroundColor: `${isActive ? 'blue400' : 'blue300'}`,
               },
+              '& > * + *': {
+                ml: 2,
+              },
             }}
             onClick={toggleFilter}>
-            {filter?.label || filterKey}
+            {Icon && <Icon />}
+            <Text>{filter?.label || filterKey}</Text>
           </Badge>
         )
       })}

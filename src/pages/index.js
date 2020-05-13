@@ -45,14 +45,17 @@ const Index = ({data}) => {
       <SEO title='Homepage' />
       {/* <Bio /> */}
       <Filters pickedFilters={pickedFilters} setPickedFilters={setPickedFilters} />
-      <Box>
+      <motion.div layoutTransition={spring}>
         <AnimatePresence>
           {sorted.map(entry => {
             const Comp = componentMap[entry.type]
-            return <motion.div layoutTransition={spring}>{Comp && <Comp key={entry.node.id} {...entry} />}</motion.div>
+            if (Comp) {
+              return <Comp key={entry.node.id} {...entry} />
+            }
+            return null
           })}
         </AnimatePresence>
-      </Box>
+      </motion.div>
     </Layout>
   )
 }

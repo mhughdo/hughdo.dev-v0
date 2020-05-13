@@ -12,7 +12,7 @@ const Post = ({node}) => {
     <motion.div
       initial={{scale: 0.6, opacity: 0}}
       animate={{scale: 1, opacity: 1}}
-      exit={{scale: 0.7, y: -30, opacity: 0}}
+      exit={{scale: 0.6, opacity: 0}}
       key={title}
       sx={{
         backgroundColor: 'background',
