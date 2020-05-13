@@ -25,7 +25,7 @@ const spring = {
   stiffness: 100,
 }
 
-export const filters = ['posts', 'events']
+export const filters = ['posts', 'tips', 'events', 'achievements']
 
 const Index = ({data}) => {
   const [pickedFilters, setPickedFilters] = useState(filters)

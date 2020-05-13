@@ -1,7 +1,8 @@
 /* eslint-disable import/no-cycle */
 /** @jsx jsx */
 import {jsx, Box, Badge, Text} from 'theme-ui'
-import {GoFile, GoRocket} from 'react-icons/go'
+import {GoFile, GoRocket, GoStar} from 'react-icons/go'
+import {IoMdCodeWorking} from 'react-icons/io'
 import {filters} from '../pages'
 
 const filterMap = {
@@ -9,9 +10,17 @@ const filterMap = {
     label: 'Posts',
     icon: GoFile,
   },
+  tips: {
+    label: 'Tips',
+    icon: IoMdCodeWorking,
+  },
   events: {
     label: 'Events',
     icon: GoRocket,
+  },
+  achievements: {
+    label: 'Achievements',
+    icon: GoStar,
   },
 }
 
