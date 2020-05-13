@@ -4,7 +4,7 @@ import {jsx, Box} from 'theme-ui'
 import {graphql} from 'gatsby'
 
 import {useState} from 'react'
-import {AnimatePresence} from 'framer-motion'
+import {AnimatePresence, motion} from 'framer-motion'
 import pick from 'lodash.pick'
 import reduce from 'lodash.reduce'
 import sortBy from 'lodash.sortby'
@@ -17,6 +17,12 @@ import Filters from '../components/Filters'
 const componentMap = {
   events: Event,
   posts: Post,
+}
+
+const spring = {
+  type: 'spring',
+  damping: 10,
+  stiffness: 100,
 }
 
 export const filters = ['posts', 'events']
@@ -43,10 +49,7 @@ const Index = ({data}) => {
         <AnimatePresence>
           {sorted.map(entry => {
             const Comp = componentMap[entry.type]
-            if (Comp) {
-              return <Comp key={entry.node.id} {...entry} />
-            }
-            return null
+            return <motion.div layoutTransition={spring}>{Comp && <Comp key={entry.node.id} {...entry} />}</motion.div>
           })}
         </AnimatePresence>
       </Box>
