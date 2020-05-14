@@ -14,31 +14,30 @@ const Layout = ({children, hero = true, backgroundColor}) => {
         flexDirection: 'column',
         minHeight: '100vh',
       }}>
-      {/* <GlobalStyles /> */}
+      {hero ? (
+        <HeroHeader />
+      ) : (
+        <>
+          <HeaderNav backgroundColor={backgroundColor} sticky={true} />
+          <BlurGradient backgroundColor={backgroundColor} />
+        </>
+      )}
       <Box
         sx={{
-          flex: '1 1 auto',
-          backgroundColor: `${backgroundColor || 'gray100'}`,
+          flex: '1 1 0%',
+          maxWidth: '100vw',
+          transition: 'background 350ms ease 0s',
+          overflow: 'hidden',
+          background: theme => `${theme.colors[backgroundColor] || theme.colors.defaultBackground}`,
         }}>
-        {hero ? (
-          <HeroHeader />
-        ) : (
-          <>
-            <HeaderNav backgroundColor={backgroundColor} fixed={true} />
-            <BlurGradient />
-          </>
-        )}
-        <main sx={{}}>
-          <Box
-            sx={{
-              maxWidth: 'container',
-              mx: 'auto',
-              pt: 6,
-              px: [4, 5],
-            }}>
-            {children}
-          </Box>
-        </main>
+        <Box
+          sx={{
+            maxWidth: 'container',
+            mx: 'auto',
+            px: [4, 5],
+          }}>
+          {children}
+        </Box>
       </Box>
       <Footer backgroundColor={backgroundColor} />
     </Flex>

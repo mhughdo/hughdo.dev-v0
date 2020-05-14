@@ -11,7 +11,8 @@ const Post = ({data, pageContext}) => {
   const {slug} = post.fields
   const {frontmatter} = post
   const siteTitle = data.site.siteMetadata.title
-  const {previous, next} = pageContext
+  const {previous, next, pathPrefix} = pageContext
+  const path = `${pathPrefix}${slug}`
 
   return (
     <Layout hero={false} backgroundColor='background'>
@@ -19,7 +20,7 @@ const Post = ({data, pageContext}) => {
         title={frontmatter.title}
         description={frontmatter.description || post.excerpt}
         image={frontmatter?.image?.publicURL}
-        pathname={slug}
+        pathname={path}
       />
       <Box
         sx={{
@@ -36,16 +37,16 @@ const Post = ({data, pageContext}) => {
           {frontmatter.title}
         </Text>
       </Box>
-      <article
+      <main
         key={slug}
         sx={{
           maxWidth: 'article',
           mx: 'auto',
         }}>
-        <section>
+        <article>
           <MDXRenderer>{post.body}</MDXRenderer>
-        </section>
-      </article>
+        </article>
+      </main>
 
       {/* <nav>
         <ul

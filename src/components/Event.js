@@ -12,7 +12,7 @@ const Event = ({node}) => {
       exit={{scale: 0.6, opacity: 0}}
       key={title}
       sx={{
-        backgroundColor: 'background',
+        backgroundColor: 'defaultBackground',
         border: theme => `1px ${theme.colors.gray300} solid`,
         py: 4,
         px: 4,

@@ -122,7 +122,7 @@ const Header = () => {
           height='74'
           viewBox='0 0 1440 74'
           sx={{
-            fill: 'gray100',
+            fill: 'white',
             position: 'absolute',
             left: '-3%',
             right: '-3%',

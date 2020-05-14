@@ -8,7 +8,7 @@ const Footer = ({backgroundColor}) => {
       <Box
         sx={{
           ...(backgroundColor
-            ? {backgroundColor}
+            ? {background: theme => `${theme.colors[backgroundColor] || theme.colors.defaultBackground}`}
             : {
                 background: theme =>
                   `linear-gradient( 0deg, ${theme.colors.homepageLight}, ${theme.colors.homepageDark})`,

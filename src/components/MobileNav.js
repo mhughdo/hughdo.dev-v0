@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import {jsx, Box, Button, Flex} from 'theme-ui'
+import {jsx, Box, Button, Flex, Text} from 'theme-ui'
 import {useState, useEffect} from 'react'
 import {Link} from 'gatsby'
 import {useScrollFreeze} from '../hooks/useScrollFreeze'
@@ -165,19 +165,49 @@ const MobileNav = () => {
             },
           }}>
           <Box>
-            <Link to='/blog'>Blog</Link>
+            <Link
+              sx={{
+                variant: 'links.fakelink',
+                display: 'inline-block',
+                ':hover': {
+                  color: 'primary',
+                },
+              }}
+              to='/blog'>
+              <Text p={3}>Blog</Text>
+            </Link>
           </Box>
           <Box
             sx={{
               transitionDelay: '0.1s',
             }}>
-            <Link to='/tips'>Tips</Link>
+            <Link
+              sx={{
+                variant: 'links.fakelink',
+                display: 'inline-block',
+                ':hover': {
+                  color: 'primary',
+                },
+              }}
+              to='/tips'>
+              <Text p={3}>Tips</Text>
+            </Link>
           </Box>
           <Box
             sx={{
               transitionDelay: '0.2s',
             }}>
-            <Link to='/about'>About</Link>
+            <Link
+              sx={{
+                variant: 'links.fakelink',
+                display: 'inline-block',
+                ':hover': {
+                  color: 'primary',
+                },
+              }}
+              to='/about'>
+              <Text p={3}>About</Text>
+            </Link>
           </Box>
         </Flex>
       </Box>

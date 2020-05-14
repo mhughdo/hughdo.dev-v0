@@ -4,5 +4,6 @@ export default {
   jsx: 'JSX',
   tsx: 'TSX',
   graphql: 'GRAPHQL',
+  gatsby: 'GATSBY',
   css: 'CSS',
 }

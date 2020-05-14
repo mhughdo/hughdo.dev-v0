@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 /** @jsx jsx */
-import {jsx, Box} from 'theme-ui'
+import {jsx} from 'theme-ui'
 import {graphql} from 'gatsby'
 
 import {useState} from 'react'
@@ -42,9 +42,10 @@ const Index = ({data}) => {
 
   return (
     <Layout>
-      <Box
+      <main
         sx={{
           maxWidth: 'article',
+          pt: 6,
           mx: 'auto',
         }}>
         <SEO title='Homepage' />
@@ -61,7 +62,7 @@ const Index = ({data}) => {
             })}
           </AnimatePresence>
         </motion.div>
-      </Box>
+      </main>
     </Layout>
   )
 }

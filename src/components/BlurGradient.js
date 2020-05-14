@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import {jsx, Box} from 'theme-ui'
 
-const BlurGradient = () => {
+const BlurGradient = ({backgroundColor}) => {
   return (
     <Box
       sx={{
@@ -41,8 +41,10 @@ const BlurGradient = () => {
           width='100%'
           height='100%'
           mask='url(#eased-gradient-mask-abbg)'
-          fill='var(--theme-ui-colors-background,#ffffff)'
-          sx={{transition: 'fill 350ms ease 0s'}}
+          sx={{
+            transition: 'fill 350ms ease 0s',
+            fill: theme => `${theme.colors[backgroundColor] || theme.colors.defaultBackground}}`,
+          }}
         />
       </svg>
     </Box>

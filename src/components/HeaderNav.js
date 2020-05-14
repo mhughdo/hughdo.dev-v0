@@ -1,15 +1,17 @@
 /** @jsx jsx */
+import {jsx, Box, Flex, Text} from 'theme-ui'
 import {Link} from 'gatsby'
-import {jsx, Box, Flex, NavLink} from 'theme-ui'
 import MobileNav from './MobileNav'
 
-const HeaderNav = ({fixed, backgroundColor}) => {
+const HeaderNav = ({sticky, backgroundColor}) => {
   return (
     <Box
       sx={{
-        ...(backgroundColor && {backgroundColor}),
-        ...(fixed && {
-          position: 'fixed',
+        ...(backgroundColor && {
+          background: theme => `${theme.colors[backgroundColor] || theme.colors.defaultBackground}`,
+        }),
+        ...(sticky && {
+          position: 'sticky',
           top: 0,
           zIndex: 3,
           transition: 'all 350ms ease 0s',
@@ -50,7 +52,7 @@ const HeaderNav = ({fixed, backgroundColor}) => {
               display: ['none', 'none', 'block'],
               '& > a': {
                 margin: 3,
-                fontWeight: 'normal',
+                fontWeight: 'medium',
                 position: 'relative',
                 ':hover': {
                   '::before': {
@@ -74,15 +76,39 @@ const HeaderNav = ({fixed, backgroundColor}) => {
                 },
               },
             }}>
-            <NavLink href='/blog' p={2}>
-              Blog
-            </NavLink>
-            <NavLink href='/tips' p={2}>
-              Tips
-            </NavLink>
-            <NavLink href='/about' p={2}>
-              About
-            </NavLink>
+            <Link
+              sx={{
+                variant: 'links.fakelink',
+                display: 'inline-block',
+                ':hover': {
+                  color: 'primary',
+                },
+              }}
+              to='/blog'>
+              <Text p={3}>Blog</Text>
+            </Link>
+            <Link
+              sx={{
+                variant: 'links.fakelink',
+                display: 'inline-block',
+                ':hover': {
+                  color: 'primary',
+                },
+              }}
+              to='/tips'>
+              <Text p={3}>Tips</Text>
+            </Link>
+            <Link
+              sx={{
+                variant: 'links.fakelink',
+                display: 'inline-block',
+                ':hover': {
+                  color: 'primary',
+                },
+              }}
+              to='/about'>
+              <Text p={3}>About</Text>
+            </Link>
           </Flex>
         </Flex>
       </Box>

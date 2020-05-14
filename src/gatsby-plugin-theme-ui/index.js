@@ -21,8 +21,9 @@ export default {
   colors: {
     text: '#000000',
     language: '#232129',
-    background: '#ffffff',
+    defaultBackground: '#ffffff',
     subtleBackground: '#eff1f5',
+    subtleFloating: '#ffffff',
     primary: '#4433FF',
     secondary: '#e60067',
     tertiary: '#2c0b8e',
@@ -60,6 +61,7 @@ export default {
     TSX: '#007acc',
     CSS: '#264de4',
     GRAPHQL: '#e10098',
+    GATSBY: '#663399',
   },
   text: {
     heading: {
