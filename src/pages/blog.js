@@ -34,7 +34,7 @@ const Blog = ({data}) => {
             sx={{
               fontSize: 3,
             }}>
-            12 Posts
+            {posts.length} Posts
           </span>
         </Box>
         <Box
