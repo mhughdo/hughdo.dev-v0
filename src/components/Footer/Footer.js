@@ -38,7 +38,7 @@ const Footer = ({backgroundColor}) => {
           </Text>
           <Box>
             <Link
-              href='https://www.facebook.com/fluinvs'
+              href='https://www.facebook.com/mhughdo'
               target='_blank'
               rel='noopener noreferrer'
               sx={{

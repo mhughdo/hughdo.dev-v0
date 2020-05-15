@@ -6,7 +6,7 @@ export const ImageFields = graphql`
     id
     extension
     childImageSharp {
-      fluid(maxWidth: 1100) {
+      fluid(maxWidth: 800) {
         ...GatsbyImageSharpFluid
       }
     }

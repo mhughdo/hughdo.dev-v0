@@ -142,7 +142,6 @@ export default {
         display: 'flex',
         alignItems: 'baseline',
         counterIncrement: 'muffins',
-        mb: 3,
         '::before': {
           content: 'counter(muffins) ". "',
           color: 'primary',
@@ -151,6 +150,7 @@ export default {
           fontFeatureSettings: 'tnum',
         },
       },
+      fontSize: 3,
       p: 0,
       mt: 0,
       mb: 5,
@@ -178,7 +178,7 @@ export default {
     fontFamily: 'monospace',
     'div.token-line': {
       color: 'preText',
-      fontSize: 2,
+      fontSize: [1, 2],
     },
     '.token.comment, .token.prolog, .token.doctype, .token.cdata': {
       color: 'tokenComment',

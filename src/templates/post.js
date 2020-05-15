@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import {jsx, Box, Text} from 'theme-ui'
-import {graphql} from 'gatsby'
-
+import {graphql, Link} from 'gatsby'
+import Img from 'gatsby-image'
 import {MDXRenderer} from 'gatsby-plugin-mdx'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -9,10 +9,12 @@ import SEO from '../components/seo'
 const Post = ({data, pageContext}) => {
   const post = data.mdx
   const {slug} = post.fields
-  const {frontmatter} = post
-  const siteTitle = data.site.siteMetadata.title
+  const {frontmatter, fileAbsolutePath, parent} = post
+  const {image, description} = frontmatter
+  const updatedDate = parent.modifiedTime
   const {previous, next, pathPrefix} = pageContext
   const path = `${pathPrefix}${slug}`
+  const editURL = `https://github.com/mhughdo/hughdo.dev/tree/master/src/${fileAbsolutePath.split('/src/')[1]}`
 
   return (
     <Layout hero={false} backgroundColor='background'>
@@ -26,7 +28,7 @@ const Post = ({data, pageContext}) => {
         sx={{
           pt: 8,
           px: [4, 5],
-          pb: 7,
+          pb: 4,
           textAlign: 'center',
         }}>
         <Text
@@ -36,7 +38,27 @@ const Post = ({data, pageContext}) => {
           }}>
           {frontmatter.title}
         </Text>
+        {description && (
+          <Text
+            sx={{
+              fontSize: 4,
+              color: 'gray700',
+              mt: 4,
+            }}>
+            {description}
+          </Text>
+        )}
       </Box>
+      {image?.childImageSharp && (
+        <Box
+          sx={{
+            maxWidth: 'article',
+            mx: 'auto',
+          }}>
+          <Img fluid={image.childImageSharp.fluid} />
+        </Box>
+      )}
+
       <main
         key={slug}
         sx={{
@@ -46,33 +68,173 @@ const Post = ({data, pageContext}) => {
         <article>
           <MDXRenderer>{post.body}</MDXRenderer>
         </article>
-      </main>
-
-      {/* <nav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            mt: 6,
+            color: 'gray600',
+            fontWeight: 'normal',
           }}>
-          <li>
+          <Link
+            sx={{
+              variant: 'links.fakelink',
+              py: 3,
+              ':hover': {
+                color: 'primary',
+              },
+            }}
+            target='_blank'
+            rel='noopener noreferrer'
+            href={editURL}>
+            <svg
+              stroke='currentColor'
+              fill='currentColor'
+              stroke-width='0'
+              viewBox='0 0 24 24'
+              class='css-9u48bm'
+              sx={{mr: 3}}
+              height='1em'
+              width='1em'
+              xmlns='http://www.w3.org/2000/svg'>
+              <path d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z' />
+            </svg>
+            Edit this page on GitHub
+          </Link>
+          <span>
+            Last updated: <time datetime={updatedDate}>{updatedDate}</time>
+          </span>
+        </Box>
+        <nav
+          sx={{
+            display: ['block', 'flex'],
+            justifyContent: [null, 'space-between'],
+            width: [null, '100%'],
+            mt: 6,
+          }}>
+          <Box
+            sx={{
+              width: [null, '48%'],
+            }}>
             {previous && (
-              <Link to={previous.fields.slug} rel='prev'>
-                ← {previous.frontmatter.title}
+              <Link
+                sx={{
+                  variant: 'links.fakelink',
+                }}
+                to={`${pathPrefix}${previous.fields.slug}`}>
+                <p
+                  sx={{
+                    mb: 3,
+                    mt: 0,
+                    p: 0,
+                    mx: 0,
+                    fontWeight: 'normal',
+                    color: 'gray600',
+                  }}>
+                  Previous
+                </p>
+                <span
+                  sx={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    fontSize: '1.125rem',
+                    fontWeight: 'bold',
+                    color: 'primary',
+                    ml: [null, null, -5],
+                  }}>
+                  <svg
+                    sx={{
+                      flexShrink: 0,
+                      mr: '14px',
+                      verticalAlign: 'middle',
+                    }}
+                    stroke='currentColor'
+                    fill='currentColor'
+                    stroke-width='0'
+                    viewBox='0 0 24 24'
+                    class='css-1hyj6ne'
+                    height='1em'
+                    width='1em'
+                    xmlns='http://www.w3.org/2000/svg'>
+                    <path d='M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z' />
+                  </svg>
+                  {previous.frontmatter.title}
+                </span>
               </Link>
             )}
-          </li>
-          <li>
+          </Box>
+          <Box
+            sx={{
+              width: [null, '48%'],
+              textAlign: 'right',
+            }}>
             {next && (
-              <Link to={next.fields.slug} rel='next'>
-                {next.frontmatter.title} →
+              <Link
+                sx={{
+                  variant: 'links.fakelink',
+                }}
+                rel='prev'
+                to={`${pathPrefix}${next.fields.slug}`}>
+                <p
+                  sx={{
+                    mb: 3,
+                    mt: 0,
+                    p: 0,
+                    mx: 0,
+                    fontWeight: 'normal',
+                    color: 'gray600',
+                  }}>
+                  Next
+                </p>
+                <span
+                  sx={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    fontSize: '1.125rem',
+                    fontWeight: 'bold',
+                    color: 'primary',
+                    mr: [null, null, -5],
+                  }}>
+                  {next.frontmatter.title}
+                  <svg
+                    sx={{
+                      verticalAlign: 'middle',
+                      flexShrink: 0,
+                      ml: '14px',
+                    }}
+                    stroke='currentColor'
+                    fill='currentColor'
+                    stroke-width='0'
+                    viewBox='0 0 24 24'
+                    class='css-jmo9lw'
+                    height='1em'
+                    width='1em'
+                    xmlns='http://www.w3.org/2000/svg'>
+                    <path d='M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z' />
+                  </svg>
+                </span>
               </Link>
             )}
-          </li>
-        </ul>
-      </nav> */}
+          </Box>
+          {/* <ul>
+            <li>
+              {previous && (
+                <Link to={previous.fields.slug} rel='prev'>
+                  ← {previous.frontmatter.title}
+                </Link>
+              )}
+            </li>
+            <li>
+              {next && (
+                <Link to={next.fields.slug} rel='next'>
+                  {next.frontmatter.title} →
+                </Link>
+              )}
+            </li>
+          </ul> */}
+        </nav>
+      </main>
     </Layout>
   )
 }
@@ -98,8 +260,14 @@ export const pageQuery = graphql`
         title
         slug
         date(formatString: "MMMM DD, YYYY")
+        description
         image {
           ...ImageFields
+        }
+      }
+      parent {
+        ... on File {
+          modifiedTime(formatString: "MMMM DD, YYYY")
         }
       }
       body

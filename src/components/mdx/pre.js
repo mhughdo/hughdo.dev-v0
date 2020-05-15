@@ -52,16 +52,22 @@ const Code = props => {
                 sx={{
                   borderRadius: '6px',
                   maxWidth: ['100vw', '100vw', '100vw', 'calc(-16px + 100vw)'],
-                  maxHeight: ['70vh', '80vh'],
+                  maxHeight: '75vh',
                   overflow: 'auto',
-                  mx: theme => `-${theme.space[5]}px`,
-                  p: 5,
+                  mx: [-4, -5],
+                  pt: 5,
+                  pb: [4, 5],
+                  px: [4, 5],
                   background: theme => `${theme.colors.preBackground}`,
                 }}>
                 {tokens.map((line, i) => {
                   const {style, ...lineProps} = getLineProps({line, key: i})
                   return (
-                    <div {...lineProps}>
+                    <div
+                      sx={{
+                        fontSize: [1, 2],
+                      }}
+                      {...lineProps}>
                       {line.map((token, key) => {
                         const {style, ...tokenProps} = getTokenProps({token, key})
                         return <span {...tokenProps} />
