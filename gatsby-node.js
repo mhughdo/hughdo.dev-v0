@@ -1,9 +1,53 @@
 const path = require(`path`)
 const {createFilePath} = require(`gatsby-source-filesystem`)
 
-exports.createPages = async ({graphql, actions}) => {
+async function makeTips({graphql, actions}) {
   const {createPage} = actions
+  const tipTemplate = path.resolve(`./src/templates/tip.js`)
+  const result = await graphql(
+    `
+      {
+        allMdx(sort: {fields: frontmatter___date, order: DESC}, filter: {fields: {collection: {eq: "tip"}}}) {
+          edges {
+            node {
+              frontmatter {
+                title
+              }
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    `
+  )
 
+  if (result.errors) {
+    throw result.errors
+  }
+
+  const tips = result.data.allMdx.edges
+
+  tips.forEach((tip, index) => {
+    const previous = index === tips.length - 1 ? null : tips[index + 1].node
+    const next = index === 0 ? null : tips[index - 1].node
+
+    createPage({
+      path: `/tip${tip.node.fields.slug}`,
+      component: tipTemplate,
+      context: {
+        slug: tip.node.fields.slug,
+        pathPrefix: '/tip',
+        previous,
+        next,
+      },
+    })
+  })
+}
+
+async function makePosts({graphql, actions}) {
+  const {createPage} = actions
   const blogPost = path.resolve(`./src/templates/post.js`)
   const result = await graphql(
     `
@@ -46,6 +90,10 @@ exports.createPages = async ({graphql, actions}) => {
       },
     })
   })
+}
+
+exports.createPages = async ({graphql, actions}) => {
+  await Promise.all([makePosts({graphql, actions}), makeTips({graphql, actions})])
 }
 
 exports.onCreateNode = ({node, actions, getNode}) => {

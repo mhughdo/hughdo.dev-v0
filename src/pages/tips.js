@@ -1,17 +1,15 @@
 /** @jsx jsx */
-import {jsx, Box, AspectRatio, Text, Badge} from 'theme-ui'
+import {jsx, Box, Text} from 'theme-ui'
 import {graphql, Link} from 'gatsby'
-import Img from 'gatsby-image'
 import Layout from '../components/layout'
-import colorMapper from '../utils/colorMapper'
 import SEO from '../components/seo'
 
-const Blog = ({data}) => {
-  const posts = data.allMdx.edges
+const Tips = ({data}) => {
+  const tips = data.allMdx.edges
 
   return (
     <Layout hero={false} backgroundColor='subtleBackground'>
-      <SEO title='Blog' description='All blog posts' />
+      <SEO title='Tips' description='All tips' />
       <main
         sx={{
           pt: 9,
@@ -30,7 +28,7 @@ const Blog = ({data}) => {
               pl: [5, 5, 5, 5, '0px'],
               pb: 4,
             }}>
-            Posts
+            Tips
           </h1>
           <span
             sx={{
@@ -38,7 +36,7 @@ const Blog = ({data}) => {
               display: ['none', 'inline-block'],
               pr: 5,
             }}>
-            {posts.length} Posts
+            {tips.length} Tips
           </span>
         </Box>
         <Box
@@ -49,11 +47,11 @@ const Blog = ({data}) => {
             ml: [null, null, null, null, -5],
             mr: [null, null, null, null, -5],
           }}>
-          {posts.map(({node}) => {
+          {tips.map(({node}) => {
             const {id, frontmatter, excerpt, fields} = node
             const {slug} = fields
-            const path = `/blog${slug}`
-            const {title, date, category, image} = frontmatter
+            const path = `/tip${slug}`
+            const {title, date} = frontmatter
             // console.log(frontmatter)
 
             return (
@@ -62,6 +60,8 @@ const Blog = ({data}) => {
                 sx={{
                   background: theme => `${theme.colors.subtleFloating}`,
                   borderRadius: '8px',
+                  p: 5,
+                  pl: [4, 5],
                   ':hover': {
                     transform: 'translateY(-5px)',
                     transition: 'all .25s cubic-bezier(.4,0,.2,1) 0s',
@@ -72,22 +72,19 @@ const Blog = ({data}) => {
                     to={path}
                     sx={{
                       variant: 'links.fakelink',
+                      ':hover': {
+                        h3: {
+                          color: 'primary',
+                        },
+                      },
                     }}>
                     <Box
                       sx={{
                         overflow: 'hidden',
-                      }}>
-                      {image?.childImageSharp && (
-                        <AspectRatio ratio={16 / 9}>
-                          <Img fluid={image.childImageSharp.fluid} />
-                        </AspectRatio>
-                      )}
-                    </Box>
+                      }}
+                    />
                     <Box
                       sx={{
-                        p: 5,
-                        pl: [4, 5],
-                        pt: 4,
                         display: 'flex',
                         flexDirection: 'column',
                       }}>
@@ -113,32 +110,7 @@ const Blog = ({data}) => {
                         }}>
                         {excerpt}
                       </p>
-                      <Box
-                        sx={{
-                          alignSelf: 'flex-end',
-                          '> :not(:last-child)': {
-                            mr: 3,
-                          },
-                        }}>
-                        {category &&
-                          category.map(item => {
-                            return (
-                              <Badge
-                                key={item}
-                                sx={{
-                                  backgroundColor: colorMapper[item],
-                                  fontSize: 1,
-                                  py: '5px',
-                                  px: 2,
-                                  borderRadius: '8px',
-                                  color: 'text',
-                                  fontWeight: 'medium',
-                                }}>
-                                {item}
-                              </Badge>
-                            )
-                          })}
-                      </Box>
+                      <Text>Read more →</Text>
                     </Box>
                   </Link>
                 </article>
@@ -151,11 +123,11 @@ const Blog = ({data}) => {
   )
 }
 
-export default Blog
+export default Tips
 
 export const pageQuery = graphql`
-  query AllBlogs {
-    allMdx(filter: {fields: {collection: {eq: "post"}}}, sort: {fields: frontmatter___date, order: DESC}) {
+  query AllTips {
+    allMdx(filter: {fields: {collection: {eq: "tip"}}}, sort: {fields: frontmatter___date, order: DESC}) {
       edges {
         node {
           id
@@ -163,11 +135,6 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date(formatString: "MMM DD, YYYY")
-            description
-            category
-            image {
-              ...ImageFields
-            }
           }
           fields {
             slug

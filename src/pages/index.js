@@ -12,11 +12,13 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import Event from '../components/Event'
 import Post from '../components/Post'
+import Tip from '../components/Tip'
 import Filters from '../components/Filters'
 
 const componentMap = {
   events: Event,
   posts: Post,
+  tips: Tip,
 }
 
 const spring = {
@@ -48,7 +50,7 @@ const Index = ({data}) => {
           pt: 6,
           mx: 'auto',
         }}>
-        <SEO title='Homepage' />
+        <SEO title='Homepage' description='Homepage' />
         {/* <Bio /> */}
         <Filters pickedFilters={pickedFilters} setPickedFilters={setPickedFilters} />
         <motion.div layoutTransition={spring}>
@@ -88,6 +90,21 @@ export const query = graphql`
           frontmatter {
             title
             description
+            date(formatString: "MMM DD, YYYY")
+          }
+          id
+          excerpt
+          fields {
+            slug
+          }
+        }
+      }
+    }
+    tips: allMdx(filter: {fields: {collection: {eq: "tip"}}}, sort: {fields: frontmatter___date, order: DESC}) {
+      edges {
+        node {
+          frontmatter {
+            title
             date(formatString: "MMM DD, YYYY")
           }
           id

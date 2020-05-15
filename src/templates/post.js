@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import {jsx, Box, Text} from 'theme-ui'
+import {jsx, Box, Text, Link as ThemeUILink} from 'theme-ui'
 import {graphql, Link} from 'gatsby'
 import Img from 'gatsby-image'
 import {MDXRenderer} from 'gatsby-plugin-mdx'
@@ -13,8 +13,9 @@ const Post = ({data, pageContext}) => {
   const {image, description} = frontmatter
   const updatedDate = parent.modifiedTime
   const {previous, next, pathPrefix} = pageContext
-  const path = `${pathPrefix}${slug}`
   const editURL = `https://github.com/mhughdo/hughdo.dev/tree/master/src/${fileAbsolutePath.split('/src/')[1]}`
+  const {siteUrl} = data.site.siteMetadata
+  const path = `${siteUrl}${pathPrefix}${slug}`
 
   return (
     <Layout hero={false} backgroundColor='background'>
@@ -77,7 +78,7 @@ const Post = ({data, pageContext}) => {
             color: 'gray600',
             fontWeight: 'normal',
           }}>
-          <Link
+          <ThemeUILink
             sx={{
               variant: 'links.fakelink',
               py: 3,
@@ -91,9 +92,8 @@ const Post = ({data, pageContext}) => {
             <svg
               stroke='currentColor'
               fill='currentColor'
-              stroke-width='0'
+              strokeWidth='0'
               viewBox='0 0 24 24'
-              class='css-9u48bm'
               sx={{mr: 3}}
               height='1em'
               width='1em'
@@ -101,9 +101,9 @@ const Post = ({data, pageContext}) => {
               <path d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z' />
             </svg>
             Edit this page on GitHub
-          </Link>
+          </ThemeUILink>
           <span>
-            Last updated: <time datetime={updatedDate}>{updatedDate}</time>
+            Last updated: <time dateTime={updatedDate}>{updatedDate}</time>
           </span>
         </Box>
         <nav
@@ -151,9 +151,8 @@ const Post = ({data, pageContext}) => {
                     }}
                     stroke='currentColor'
                     fill='currentColor'
-                    stroke-width='0'
+                    strokeWidth='0'
                     viewBox='0 0 24 24'
-                    class='css-1hyj6ne'
                     height='1em'
                     width='1em'
                     xmlns='http://www.w3.org/2000/svg'>
@@ -205,9 +204,8 @@ const Post = ({data, pageContext}) => {
                     }}
                     stroke='currentColor'
                     fill='currentColor'
-                    stroke-width='0'
+                    strokeWidth='0'
                     viewBox='0 0 24 24'
-                    class='css-jmo9lw'
                     height='1em'
                     width='1em'
                     xmlns='http://www.w3.org/2000/svg'>
@@ -217,22 +215,6 @@ const Post = ({data, pageContext}) => {
               </Link>
             )}
           </Box>
-          {/* <ul>
-            <li>
-              {previous && (
-                <Link to={previous.fields.slug} rel='prev'>
-                  ← {previous.frontmatter.title}
-                </Link>
-              )}
-            </li>
-            <li>
-              {next && (
-                <Link to={next.fields.slug} rel='next'>
-                  {next.frontmatter.title} →
-                </Link>
-              )}
-            </li>
-          </ul> */}
         </nav>
       </main>
     </Layout>
@@ -247,6 +229,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        siteUrl
       }
     }
     mdx(fields: {slug: {eq: $slug}}) {

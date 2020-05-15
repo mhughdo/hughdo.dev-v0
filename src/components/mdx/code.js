@@ -2,7 +2,6 @@
 import {jsx} from 'theme-ui'
 
 const code = ({children, ...props}) => {
-  console.log(children)
   return (
     <code
       sx={{

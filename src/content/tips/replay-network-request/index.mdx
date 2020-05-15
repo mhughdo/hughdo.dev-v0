@@ -1,0 +1,29 @@
+---
+title: Replay network request
+slug: chrome-dev-tools-replay-network-request
+date: 2020-05-15T23:22:00Z
+tags:
+  - tools
+images: devtools.png
+---
+
+There're sometimes that you want to replay network request to do something like making some kind of tool, bot or testing
+API
+
+In Chrome DevTools > Network > Right click on Request
+
+![Dev tools](./devtools.png)
+
+### Copy as Node.js fetch
+
+After you copy, paste it in your favorite Editor/IDE. This will include cookie data
+
+![Copy as Node.js fetch](./code.png)
+
+### Copy as cURL
+
+You can either paste it in your terminal to replay the request
+
+Or import to Postman by clicking File > Import > Paste Raw Text
+
+![Postman](./postman.png)
