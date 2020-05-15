@@ -11,7 +11,7 @@ const Blog = ({data}) => {
 
   return (
     <Layout hero={false} backgroundColor='subtleBackground'>
-      <SEO title='Blog' />
+      <SEO title='Blog' description='All blog posts' />
       <main
         sx={{
           pt: 9,
@@ -26,6 +26,8 @@ const Blog = ({data}) => {
             sx={{
               fontSize: 7,
               fontWeight: 'medium',
+              m: 0,
+              pl: [5, 5, 5, 5, '0px'],
               pb: 4,
             }}>
             Posts
@@ -33,6 +35,8 @@ const Blog = ({data}) => {
           <span
             sx={{
               fontSize: 3,
+              display: ['none', 'inline-block'],
+              pr: 5,
             }}>
             {posts.length} Posts
           </span>
@@ -40,10 +44,10 @@ const Blog = ({data}) => {
         <Box
           sx={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))',
+            gridTemplateColumns: ['1fr', 'repeat(auto-fill, minmax(400px, 1fr))'],
             gap: '32px',
-            ml: -5,
-            mr: -5,
+            ml: [null, null, null, null, -5],
+            mr: [null, null, null, null, -5],
           }}>
           {posts.map(({node}) => {
             const {id, frontmatter, excerpt, fields} = node
@@ -82,6 +86,7 @@ const Blog = ({data}) => {
                     <Box
                       sx={{
                         p: 5,
+                        pl: [4, 5],
                         pt: 4,
                         display: 'flex',
                         flexDirection: 'column',
@@ -126,6 +131,8 @@ const Blog = ({data}) => {
                                   py: '5px',
                                   px: 2,
                                   borderRadius: '8px',
+                                  color: 'text',
+                                  fontWeight: 'medium',
                                 }}>
                                 {item}
                               </Badge>

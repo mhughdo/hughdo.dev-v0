@@ -19,7 +19,7 @@ const Post = ({data, pageContext}) => {
       <SEO
         title={frontmatter.title}
         description={frontmatter.description || post.excerpt}
-        image={frontmatter?.image?.publicURL}
+        image={frontmatter?.image}
         pathname={path}
       />
       <Box

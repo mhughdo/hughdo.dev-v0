@@ -30,7 +30,7 @@ function SEO({description, lang, meta, image: metaImage, title, pathname}) {
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const image = metaImage && metaImage.src ? `${site.siteMetadata.siteUrl}${metaImage.src}` : null
+  const imageURL = metaImage && metaImage.publicURL ? `${site.siteMetadata.siteUrl}${metaImage.publicURL}` : null
   const canonical = pathname ? `${site.siteMetadata.siteUrl}${pathname}` : null
 
   return (
@@ -89,16 +89,16 @@ function SEO({description, lang, meta, image: metaImage, title, pathname}) {
             ? [
                 {
                   property: 'og:image',
-                  content: image,
+                  content: imageURL,
                 },
-                {
-                  property: 'og:image:width',
-                  content: metaImage.width,
-                },
-                {
-                  property: 'og:image:height',
-                  content: metaImage.height,
-                },
+                // {
+                //   property: 'og:image:width',
+                //   content: metaImage.width,
+                // },
+                // {
+                //   property: 'og:image:height',
+                //   content: metaImage.height,
+                // },
                 {
                   name: 'twitter:card',
                   content: 'summary_large_image',
@@ -128,9 +128,9 @@ SEO.propTypes = {
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
   image: PropTypes.shape({
-    src: PropTypes.string.isRequired,
-    height: PropTypes.number.isRequired,
-    width: PropTypes.number.isRequired,
+    publicURL: PropTypes.string.isRequired,
+    // height: PropTypes.number.isRequired,
+    // width: PropTypes.number.isRequired,
   }),
   pathname: PropTypes.string,
 }

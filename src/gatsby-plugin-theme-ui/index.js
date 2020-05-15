@@ -61,7 +61,7 @@ export default {
     TSX: '#007acc',
     CSS: '#264de4',
     GRAPHQL: '#e10098',
-    GATSBY: '#663399',
+    GATSBY: '#c285ff',
   },
   text: {
     heading: {
