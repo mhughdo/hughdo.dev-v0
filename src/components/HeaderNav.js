@@ -52,13 +52,15 @@ const HeaderNav = ({sticky, backgroundColor}) => {
               display: ['none', 'none', 'block'],
               '& > a': {
                 margin: 3,
-                fontWeight: 'medium',
                 position: 'relative',
+                display: 'inline-block',
+                variant: 'links.fakelink',
+                '&[aria-current]': {
+                  variant: 'activeLink',
+                },
                 ':hover': {
-                  '::before': {
-                    opacity: 1,
-                    transform: 'scaleX(1)',
-                  },
+                  cursor: 'pointer',
+                  variant: 'activeLink',
                 },
                 '::before': {
                   content: '""',
@@ -76,37 +78,13 @@ const HeaderNav = ({sticky, backgroundColor}) => {
                 },
               },
             }}>
-            <Link
-              sx={{
-                variant: 'links.fakelink',
-                display: 'inline-block',
-                ':hover': {
-                  color: 'primary',
-                },
-              }}
-              to='/blog'>
+            <Link to='/blog/'>
               <Text p={3}>Blog</Text>
             </Link>
-            <Link
-              sx={{
-                variant: 'links.fakelink',
-                display: 'inline-block',
-                ':hover': {
-                  color: 'primary',
-                },
-              }}
-              to='/tips'>
+            <Link to='/tips/'>
               <Text p={3}>Tips</Text>
             </Link>
-            <Link
-              sx={{
-                variant: 'links.fakelink',
-                display: 'inline-block',
-                ':hover': {
-                  color: 'primary',
-                },
-              }}
-              to='/about'>
+            <Link to='/about/'>
               <Text p={3}>About</Text>
             </Link>
           </Flex>

@@ -252,4 +252,11 @@ export default {
       alignItems: 'baseline',
     },
   },
+  activeLink: {
+    color: 'primary',
+    '::before': {
+      opacity: 1,
+      transform: 'scaleX(1)',
+    },
+  },
 }

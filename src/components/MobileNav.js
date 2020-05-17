@@ -143,7 +143,9 @@ const MobileNav = () => {
               position: 'relative',
               color: 'text',
               textDecoration: 'none',
+              display: 'inline-block',
               ':hover': {
+                color: 'primary',
                 '::before': {
                   opacity: 1,
                   transform: 'scaleX(1)',
@@ -168,10 +170,6 @@ const MobileNav = () => {
             <Link
               sx={{
                 variant: 'links.fakelink',
-                display: 'inline-block',
-                ':hover': {
-                  color: 'primary',
-                },
               }}
               to='/blog'>
               <Text p={3}>Blog</Text>
@@ -184,10 +182,6 @@ const MobileNav = () => {
             <Link
               sx={{
                 variant: 'links.fakelink',
-                display: 'inline-block',
-                ':hover': {
-                  color: 'primary',
-                },
               }}
               to='/tips'>
               <Text p={3}>Tips</Text>
@@ -200,10 +194,6 @@ const MobileNav = () => {
             <Link
               sx={{
                 variant: 'links.fakelink',
-                display: 'inline-block',
-                ':hover': {
-                  color: 'primary',
-                },
               }}
               to='/about'>
               <Text p={3}>About</Text>
